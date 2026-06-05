@@ -37,10 +37,10 @@ Description:
 
 ## Screenshots
 *HDFS upload validation*
-![HDFS Upload Check](screenshots/01_hdfs_upload_files.png)
+![HDFS Upload Validation](screenshots/01_hdfs_upload_files.png)
 
 *Task 2 - Top 10 movies with highest average ratings*
-![Task2 Top10 Movies Result](screenshots/10_task2_top10_highest_average_rating_movies.png)
+![Top10 Movies Result](screenshots/10_task2_top10_highest_average_rating_movies.png)
 
 *Cassandra count validation*
 ![Cassandra Count Validation](screenshots/14-cassandra_count_validation.png)
