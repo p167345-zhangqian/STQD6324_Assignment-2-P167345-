@@ -36,15 +36,14 @@ Description:
 - Zeppelin
 
 ## Screenshots
-
-![HDFS Upload](screenshots/01_hdfs_upload_files.png)
 *HDFS upload validation*
+![HDFS Upload Check](screenshots/01_hdfs_upload_files.png)
 
-![Top 10 Movies](screenshots/10_task2_top10_highest_average_rating_movies.png)
 *Task 2 - Top 10 movies with highest average ratings*
+![Task2 Top10 Movies Result](screenshots/10_task2_top10_highest_average_rating_movies.png)
 
-![Cassandra Validation](screenshots/14-cassandra_count_validation.png)
 *Cassandra count validation*
+![Cassandra Count Validation](screenshots/14-cassandra_count_validation.png)
 
 ## Run process
 
