@@ -41,8 +41,8 @@ Description:
 
 ### 1. Upload dataset into HDFS
 ---
-hdfs dfs -mkdir -p /user/maria_dev/assignment2
-hdfs dfs -put u.data u.user u.item /user/maria_dev/assignment2
+'''hdfs dfs -mkdir -p /user/maria_dev/assignment2
+hdfs dfs -put u.data u.user u.item /user/maria_dev/assignment2'''
 ---
 
 Verify the upload: hdfs dfs -ls /user/maria_dev/assignment2
