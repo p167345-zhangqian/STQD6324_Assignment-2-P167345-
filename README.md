@@ -41,49 +41,49 @@ Description:
 
 ### 1. Upload dataset into HDFS
 ---
-'''hdfs dfs -mkdir -p /user/maria_dev/assignment2
-hdfs dfs -put u.data u.user u.item /user/maria_dev/assignment2'''
+- hdfs dfs -mkdir -p /user/maria_dev/assignment2
+- hdfs dfs -put u.data u.user u.item /user/maria_dev/assignment2
 ---
 
 Verify the upload: hdfs dfs -ls /user/maria_dev/assignment2
 
 ### 2. Run the Spark script
 ---
-spark-submit --master local[*] assignment2_generate_csv.py > generate_csv_output.log 2>&1
+- spark-submit --master local[*] assignment2_generate_csv.py > generate_csv_output.log 2>&1
 
-This generates the CSV result files in `/home/maria_dev/assignment2/cassandra_csv`.
+- This generates the CSV result files in `/home/maria_dev/assignment2/cassandra_csv`.
 ---
 
 ### 3. Load results into Cassandra
 
 Open cqlsh:
 ---
-cd /opt/apache-cassandra-3.11.13/bin
-python cqlsh.py 127.0.0.1 9042
+- cd /opt/apache-cassandra-3.11.13/bin
+- python cqlsh.py 127.0.0.1 9042
 ---
 
 Create the keyspace:
 ---
-CREATE KEYSPACE IF NOT EXISTS assignment2
-WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
-USE assignment2;
+- CREATE KEYSPACE IF NOT EXISTS assignment2
+- WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+- USE assignment2;
 ---
 
 Import each CSV file using the `COPY` command, for example:
 ---
-COPY top10_movies (movie_id, movie_title, average_rating)
-FROM '/home/maria_dev/assignment2/cassandra_csv/top10_movies.csv'
-WITH HEADER = TRUE;
+- COPY top10_movies (movie_id, movie_title, average_rating)
+- FROM '/home/maria_dev/assignment2/cassandra_csv/top10_movies.csv'
+- WITH HEADER = TRUE;
 ---
 Repeat for all five tables.
 
 ### 4. Validate
 ---
-SELECT COUNT(*) FROM average_movie_ratings;
-SELECT COUNT(*) FROM top10_movies;
-SELECT COUNT(*) FROM favourite_genres;
-SELECT COUNT(*) FROM users_under_20;
-SELECT COUNT(*) FROM scientist_users_30_40;
+- SELECT COUNT(*) FROM average_movie_ratings;
+- SELECT COUNT(*) FROM top10_movies;
+- SELECT COUNT(*) FROM favourite_genres;
+- SELECT COUNT(*) FROM users_under_20;
+- SELECT COUNT(*) FROM scientist_users_30_40;
 ---
 
 ## Notes
